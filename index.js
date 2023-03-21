@@ -1,7 +1,3 @@
-let a;
-let operator;
-let b;
-
 function add(a, b)
 {
     const result = a + b;
@@ -30,6 +26,11 @@ console.log(add(5, 10));
 console.log(subtract(10, 8));
 console.log(multiply(5, 5));
 console.log(divide(60, 6));
+
+const a = document.querySelectorAll(".operends");
+const operator = document.querySelectorAll(".operators");
+const b = document.querySelectorAll(".operends");
+
 
 function operate (a, operator, b)
 {
