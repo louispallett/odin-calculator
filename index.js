@@ -5,6 +5,7 @@ const allClear = document.querySelector("#all-clear");
 const deleteButton = document.querySelector("#delete");
 const currentOperand = document.querySelector("#current-operand"); 
 const previousOperand = document.querySelector("#previous-operand"); 
+const operatorDisplay = document.querySelector("#operator-display")
 
 let firstOperand;
 let secondOperand;
@@ -57,13 +58,15 @@ function newOperator(operator)
     firstOperand = document.querySelector("#current-operand");
     previousOperand.innerText = firstOperand.innerText;
     firstOperand = previousOperand.innerText;
+    operatorDisplay.innerText = operator;
     currentOperand.innerText = "";
 }
 
 allClear.addEventListener("click", () =>
 {
-    clearDisplay();
-    //console.log(firstOperand);
+    //clearDisplay();
+    console.log(firstOperand);
+    console.log(operator);
 });
 
 //Clears display and numbers from memory
@@ -109,6 +112,9 @@ function operate ()
     console.log(firstOperand);
     console.log(operator);
     console.log(secondOperand);
+
+    previousOperand.innerText = `${firstOperand} ${operator} ${secondOperand}`;
+    currentOperand.innerText = "";
 
     /*
     function add(a, b)
