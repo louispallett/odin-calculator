@@ -5,7 +5,7 @@ body
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: #0A0E42;
+    background: linear-gradient(to right, #00aaff, #00ff6c);
 }
 
 .header
@@ -33,46 +33,53 @@ body
 
 .calculator
 {
-    background: #3a4452;
-    padding: 20px;
-    border-radius: 10px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100%;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
 
-.calculator form input
+.calculator > button
 {
-    border: 0;
-    outline: 0;
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
-    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
-    background-color: transparent;
-    font-size: 20px;
-    color: white;
-    cursor: pointer;
-    margin: 10px;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
 }
 
-form .display
+.calculator > button:hover
 {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.span-two
+{
+    grid-column: span 2;
+}
+
+.output
+{
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, .75);
     display: flex;
-    justify-content: flex-end;
-    margin: 20px 0;
-    background-color: #8F8F92;
-    border-radius: 10px;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
-form .display input
+.output .previous-operand
 {
-    text-align: right;
-    flex: 1;
-    font-size: 52px;
-    box-shadow: none;
-    color: black;
-    font-family: "Calculator", sans-serif;
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
 }
 
-form input.equal
+.output .current-operand
 {
-    width: 145px;
+    color: white;
+    font-size: 2.5rem;
 }
