@@ -5,7 +5,7 @@ const allClear = document.querySelector("#all-clear");
 const deleteButton = document.querySelector("#delete");
 const currentOperand = document.querySelector("#current-operand"); 
 const previousOperand = document.querySelector("#previous-operand"); 
-const operatorDisplay = document.querySelector("#operator-display")
+const operatorDisplay = document.querySelector("#operator-display");
 
 let firstOperand;
 let secondOperand;
@@ -110,11 +110,12 @@ function operate ()
 
     secondOperand = currentOperand.innerText;
     console.log(firstOperand);
-    console.log(operator);
+    
     console.log(secondOperand);
+    let currentOperator = operatorDisplay.innerText;
 
-    previousOperand.innerText = `${firstOperand} ${operator} ${secondOperand}`;
-    currentOperand.innerText = "";
+    previousOperand.innerText = `${firstOperand} ${currentOperator} ${secondOperand}`;
+    console.log(currentOperator);
 
     /*
     function add(a, b)
