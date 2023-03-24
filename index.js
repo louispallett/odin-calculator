@@ -6,6 +6,7 @@ const deleteButton = document.querySelector("#delete");
 const currentOperand = document.querySelector("#current-operand"); 
 const previousOperand = document.querySelector("#previous-operand"); 
 const operatorDisplay = document.querySelector("#operator-display");
+const dot = document.querySelector("#dot");
 
 let firstOperand;
 let secondOperand;
@@ -39,6 +40,18 @@ function newDigit(digit)
     {
         document.querySelector("#current-operand").innerText += digit;
     }
+}
+
+dot.addEventListener("click", () =>
+{
+    addDot();
+})
+
+//Ensures user cannot add more than one dot
+function addDot()
+{
+    let value = document.querySelector("#current-operand").innerText;
+    !value.includes(".") ? document.querySelector("#current-operand").innerText += "." : "";
 }
 
 //Executes newOperator() when operator is selected
