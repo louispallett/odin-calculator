@@ -54,7 +54,7 @@ operators.forEach((operator) =>
 //Finally, currentOperand = blank
 function newOperator(operator)
 {
-    console.log(operator)//Just to ensure correct operator is being thrown
+    //console.log(operator)
     firstOperand = document.querySelector("#current-operand");
     previousOperand.innerText = firstOperand.innerText;
     firstOperand = previousOperand.innerText;
@@ -70,9 +70,23 @@ allClear.addEventListener("click", () =>
 //Clears display and numbers from memory
 function clearDisplay()
 {
-    document.querySelector("#current-operand").innerText = "";
-    document.querySelector("#previous-operand").innerText = "";
+    currentOperand.innerText = "";
+    previousOperand.innerText = "";
+    operatorDisplay.innerText = "";
     memory = "";
+}
+
+deleteButton.addEventListener("click", () =>
+{
+    del();
+})
+
+function del()
+{
+    //console.log(currentOperand.innerText);
+    let newCurrentOperand = currentOperand.innerText.slice(0, -1);
+    //console.log(newCurrentOperand);
+    currentOperand.innerText = newCurrentOperand;
 }
 
 //If equals button is selected
@@ -132,6 +146,12 @@ function operate ()
 
     function divide(a, b)
     {
+        if(b > 0)
+        {
         calculatorResult = (a / b);
+        } else
+        {
+            alert("Unacceptable. You cannot divide by 0.")
+        }
     }
 }
