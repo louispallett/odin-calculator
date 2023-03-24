@@ -64,9 +64,7 @@ function newOperator(operator)
 
 allClear.addEventListener("click", () =>
 {
-    //clearDisplay();
-    console.log(firstOperand);
-    console.log(operator);
+    clearDisplay();
 });
 
 //Clears display and numbers from memory
@@ -86,61 +84,54 @@ equalsButton.addEventListener("click", () =>
 //Only executes if equalsButton is implemented
 function operate ()
 {
-    /*Here, we need to outline call one of the above functions (add, subtract, multiply, or divide)
-    depending on what button has been selected.
-    
-    So, first we need to use the DOM to attach a variable to both the operator buttons and the first 
-    and last buttons - these are the variables a, operator, and b. In other words, use 
-    document.querySelector() to select a class/id. 
-    
-    The variables on a and b just need to equal the buttons selected BEFORE an operator symbol is selected
-    and then AFTER an operator is selected. This allows us to write a number of more than 9 (i.e. two 
-    buttons such as '12').
-    
-    We can then call the functions. We could also, define this particular function (operate()) as a 
-    variable, so that it's a bit easier to connect this to a querySelector() method.
-    
-    Of course, we then have to post this information in the HTML file, so that the user can see the 
-    result!*/
-
-    //if we create an if statement here basically saying:
-    //if operator (variable which should be querySelectorAll("operator")) === "+" [for example] then:
-    //sum = a + b
-    //... and so on
-
     secondOperand = currentOperand.innerText;
     console.log(firstOperand);
     
     console.log(secondOperand);
     let currentOperator = operatorDisplay.innerText;
 
-    previousOperand.innerText = `${firstOperand} ${currentOperator} ${secondOperand}`;
     console.log(currentOperator);
 
-    /*
+    let calculatorResult;
+
+    if (currentOperator === "+")
+    {
+        add(firstOperand, secondOperand);
+    } else if (currentOperator === "-")
+    {
+        subtract(firstOperand, secondOperand);
+    } else if (currentOperator === "*")
+    {
+        multiply(firstOperand, secondOperand);
+    } else if (currentOperator === "/")
+    {
+        divide(firstOperand, secondOperand);
+    }
+    previousOperand.innerText = `${firstOperand} ${currentOperator} ${secondOperand}`;
+    operatorDisplay.innerText = "";
+    //console.log(currentOperator);
+    currentOperand.innerText = calculatorResult;
+    
     function add(a, b)
     {
-        const result = a + b;
-        return result;
+        a = Number(a);
+        b = Number(b);
+        calculatorResult = a + b;
     }
 
     function subtract(a, b)
     {
-        const result = a - b;
-        return result;
+        calculatorResult = a - b;
     }
 
     function multiply(a, b)
     {
-        const result = a * b;
-        return result;
+        calculatorResult = a * b;
+        
     }
 
     function divide(a, b)
     {
-        const result = a / b;
-        return result;
+        calculatorResult = (a / b);
     }
-    */
-    
 }

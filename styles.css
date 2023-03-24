@@ -87,4 +87,6 @@ body
 .output .operator-display
 {
     color: #99ffcc; 
+    font-size: 24px;
+    font-weight: bold;
 }
