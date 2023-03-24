@@ -67,12 +67,18 @@ operators.forEach((operator) =>
 //Finally, currentOperand = blank
 function newOperator(operator)
 {
-    //console.log(operator)
-    firstOperand = document.querySelector("#current-operand");
-    previousOperand.innerText = firstOperand.innerText;
+    firstOperand = document.querySelector("#current-operand").innerText;
+    //ensures first operand must be inserted before operator can be selected
+    if (firstOperand === "")
+    {
+        return;
+    }
+
+    previousOperand.innerText = firstOperand;
     firstOperand = previousOperand.innerText;
     operatorDisplay.innerText = operator;
     currentOperand.innerText = "";
+    
 }
 
 allClear.addEventListener("click", () =>
@@ -109,7 +115,7 @@ equalsButton.addEventListener("click", () =>
 });
 
 //Only executes if equalsButton is implemented
-function operate ()
+function operate()
 {
     secondOperand = currentOperand.innerText;
     console.log(firstOperand);
@@ -127,7 +133,7 @@ function operate ()
     } else if (currentOperator === "-")
     {
         subtract(firstOperand, secondOperand);
-    } else if (currentOperator === "*")
+    } else if (currentOperator === "x")
     {
         multiply(firstOperand, secondOperand);
     } else if (currentOperator === "/")
@@ -154,7 +160,6 @@ function operate ()
     function multiply(a, b)
     {
         calculatorResult = a * b;
-        
     }
 
     function divide(a, b)
@@ -164,7 +169,8 @@ function operate ()
         calculatorResult = (a / b);
         } else
         {
-            alert("Unacceptable. You cannot divide by 0.")
+            alert("Enough of this silliness! You cannot divide by 0.")
+            calculatorResult = b;
         }
     }
 }
